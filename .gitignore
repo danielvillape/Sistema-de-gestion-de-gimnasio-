@@ -1,0 +1,11 @@
+bin/
+obj/
+**/Data/*.db
+**/Data/*.db-shm
+**/Data/*.db-wal
+gym_design.db
+.vs/
+*.user
+node_modules/
+gym-client/dist/
+*.log
