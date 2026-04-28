@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/GymManagement.API/GymManagement.API.csproj" />
+    <Project Path="src/GymManagement.DataAccess/GymManagement.DataAccess.csproj" />
+    <Project Path="src/GymManagement.Domain/GymManagement.Domain.csproj" />
+  </Folder>
+</Solution>

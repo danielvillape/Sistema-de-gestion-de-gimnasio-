@@ -21,13 +21,18 @@ Sistema web full-stack de gestión de gimnasio: **miembros**, **entrenadores**, 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 - [Node.js 20+](https://nodejs.org/) y npm (para el frontend)
 
+## Estructura base del repositorio
+
+- `backend_gym`: solución y proyectos del backend (.NET).
+- `fronted_gym`: aplicación frontend (React + Vite).
+
 ## Cómo ejecutar el backend
 
 Desde la raíz del repositorio:
 
 ```powershell
 dotnet restore
-dotnet run --project src/GymManagement.API/GymManagement.API.csproj --launch-profile http
+dotnet run --project backend_gym/src/GymManagement.API/GymManagement.API.csproj --launch-profile http
 ```
 
 Use el perfil **`http`** para que la API quede en `http://localhost:5093` y coincida con el proxy del frontend (Vite).
@@ -49,7 +54,7 @@ Al iniciar, se aplican **migraciones** y el **DataSeeder** crea datos de prueba 
 ## Cómo ejecutar el frontend
 
 ```powershell
-cd gym-client
+cd fronted_gym
 npm install
 npm run dev
 ```
@@ -60,9 +65,9 @@ Inicie sesión con `admin@gym.local` / `Admin123!` para ver panel, miembros, cla
 
 ## Estructura del backend
 
-- `src/GymManagement.Domain`: entidades, enums, DTOs, interfaces de repositorio y servicios, implementación de servicios, perfil AutoMapper.
-- `src/GymManagement.DataAccess`: `GymDbContext`, `GenericRepository<T>`, migraciones EF, `GymDataSeeder`.
-- `src/GymManagement.API`: controladores REST, JWT, Swagger, registro de dependencias.
+- `backend_gym/src/GymManagement.Domain`: entidades, enums, DTOs, interfaces de repositorio y servicios, implementación de servicios, perfil AutoMapper.
+- `backend_gym/src/GymManagement.DataAccess`: `GymDbContext`, `GenericRepository<T>`, migraciones EF, `GymDataSeeder`.
+- `backend_gym/src/GymManagement.API`: controladores REST, JWT, Swagger, registro de dependencias.
 
 ## Dominio implementado
 
@@ -74,7 +79,7 @@ Inicie sesión con `admin@gym.local` / `Admin123!` para ver panel, miembros, cla
 ## Migraciones (referencia)
 
 ```powershell
-dotnet ef migrations add NombreMigracion --project src/GymManagement.DataAccess --startup-project src/GymManagement.API --output-dir Migrations
+dotnet ef migrations add NombreMigracion --project backend_gym/src/GymManagement.DataAccess --startup-project backend_gym/src/GymManagement.API --output-dir Migrations
 ```
 
 ## Notas para sustentación
